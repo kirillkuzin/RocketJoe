@@ -3,6 +3,7 @@ import jupyter_kernel_test
 import jupyter_kernel_mgmt
 from jupyter_kernel_mgmt.discovery import KernelFinder
 from jupyter_kernel_mgmt.client import BlockingKernelClient
+import pytest
 
 
 class RocketJoePythonTests(jupyter_kernel_test.KernelTests):
@@ -34,64 +35,81 @@ class RocketJoePythonTests(jupyter_kernel_test.KernelTests):
     code_inspect_sample = 'zip'
 
 
-def kernel_info_request(kc) -> None:
-    kc.kernel_info()
-
-
-def execute_request_1(kc) -> None:
-    kc.execute_interactive("i = 0\ni + 1")
-
-
-def execute_request_2(kc) -> None:
-    kc.execute_interactive("print(6 * 7)")
-
-
-def complete_request_1(kc) -> None:
-    kc.complete("prin")
-
-
-def complete_request_2(kc) -> None:
-    kc.complete("print")
-
-
-def is_complete_request_1(kc) -> None:
-    kc.is_complete("prin")
-
-
-def is_complete_request_2(kc) -> None:
-    kc.is_complete("print")
-
-
-def test_rocketjoe_kernel_info_request(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(kernel_info_request, kc)
-
-
-def test_rocketjoe_execute_request_1(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(execute_request_1, kc)
-
-
-def test_rocketjoe_execute_request_2(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(execute_request_2, kc)
-
-
-def test_rocketjoe_complete_request_1(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(complete_request_1, kc)
-
-
-def test_rocketjoe_complete_request_2(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(complete_request_2, kc)
-
-
-def test_rocketjoe_is_complete_request_1(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(is_complete_request_1, kc)
-
-
-def test_rocketjoe_is_complete_request_2(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(is_complete_request_2, kc)
+# def kernel_info_request(kc) -> None:
+#     kc.kernel_info()
+#
+#
+# def execute_request_1(kc) -> None:
+#     kc.execute_interactive("i = 0\ni + 1")
+#
+#
+# def execute_request_2(kc) -> None:
+#     kc.execute_interactive("print(6 * 7)")
+#
+#
+# def complete_request_1(kc) -> None:
+#     kc.complete("prin")
+#
+#
+# def complete_request_2(kc) -> None:
+#     kc.complete("print")
+#
+#
+# def is_complete_request_1(kc) -> None:
+#     kc.is_complete("prin")
+#
+#
+# def is_complete_request_2(kc) -> None:
+#     kc.is_complete("print")
+#
+#
+# class TestRocketjoe:
+#     km = None
+#     kc = None
+#
+#     @pytest.fixture
+#     def start_a_kernel(self):
+#         km, kc = jupyter_kernel_mgmt.start_kernel_blocking('spec/rocketjoe')
+#         self.km = km
+#         self.kc = kc
+#
+#     @pytest.mark.asyncio
+#     async def test_rocketjoe_kernel_info_request(self) -> None:
+#         # async with jupyter_kernel_mgmt.run_kernel_async('rocketjoe') as kc:
+#         await self.kc.kernel_info()
+#
+#     @pytest.mark.asyncio
+#     async def test_rocketjoe_execute_request_1(self) -> None:
+#         # async with jupyter_kernel_mgmt.run_kernel_async('rocketjoe') as kc:
+#             # execute_request_1(kc)
+#         await self.kc.execute("i = 0\ni + 1")
+#
+#     @pytest.mark.asyncio
+#     async def test_rocketjoe_execute_request_2(self) -> None:
+#         # async with jupyter_kernel_mgmt.run_kernel_async('rocketjoe') as kc:
+#             # execute_request_2(kc)
+#         await self.kc.execute("print(6 * 7)")
+#
+#     @pytest.mark.asyncio
+#     async def test_rocketjoe_complete_request_1(self) -> None:
+#         # async with jupyter_kernel_mgmt.run_kernel_async('rocketjoe') as kc:
+#             # complete_request_1(kc)
+#         await self.kc.complete("prin")
+#
+#     @pytest.mark.asyncio
+#     async def test_rocketjoe_complete_request_2(self) -> None:
+#         # async with jupyter_kernel_mgmt.run_kernel_async('rocketjoe') as kc:
+#             # complete_request_2(kc)
+#         await self.kc.complete("print")
+#
+#     @pytest.mark.asyncio
+#     async def test_rocketjoe_is_complete_request_1(self) -> None:
+#         # async with jupyter_kernel_mgmt.run_kernel_async('rocketjoe') as kc:
+#             # is_complete_request_1(kc)
+#         await self.kc.is_complete("prin")
+#
+#     @pytest.mark.asyncio
+#     async def test_rocketjoe_is_complete_request_2(self) -> None:
+#         # async with jupyter_kernel_mgmt.run_kernel_async('rocketjoe') as kc:
+#             # is_complete_request_2(kc)
+#         await self.kc.is_complete("print")
