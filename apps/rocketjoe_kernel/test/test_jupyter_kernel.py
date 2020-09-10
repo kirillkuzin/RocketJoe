@@ -67,24 +67,9 @@ def test_rocketjoe_kernel_info_request(benchmark) -> None:
         benchmark(kernel_info_request, kc)
 
 
-def test_rocketjoe_kernel_info_request(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(kernel_info_request, kc)
-
-
 def test_rocketjoe_execute_request_1(benchmark) -> None:
     with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
         benchmark(execute_request_1, kc)
-
-
-def test_rocketjoe_execute_request_1(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(execute_request_1, kc)
-
-
-def test_rocketjoe_execute_request_2(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(execute_request_2, kc)
 
 
 def test_rocketjoe_execute_request_2(benchmark) -> None:
@@ -97,16 +82,6 @@ def test_rocketjoe_complete_request_1(benchmark) -> None:
         benchmark(complete_request_1, kc)
 
 
-def test_rocketjoe_complete_request_1(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(complete_request_1, kc)
-
-
-def test_rocketjoe_complete_request_2(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(complete_request_2, kc)
-
-
 def test_rocketjoe_complete_request_2(benchmark) -> None:
     with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
         benchmark(complete_request_2, kc)
@@ -115,16 +90,6 @@ def test_rocketjoe_complete_request_2(benchmark) -> None:
 def test_rocketjoe_is_complete_request_1(benchmark) -> None:
     with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
         benchmark(is_complete_request_1, kc)
-
-
-def test_rocketjoe_is_complete_request_1(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(is_complete_request_1, kc)
-
-
-def test_rocketjoe_is_complete_request_2(benchmark) -> None:
-    with jupyter_kernel_mgmt.run_kernel_blocking('spec/rocketjoe') as kc:
-        benchmark(is_complete_request_2, kc)
 
 
 def test_rocketjoe_is_complete_request_2(benchmark) -> None:
