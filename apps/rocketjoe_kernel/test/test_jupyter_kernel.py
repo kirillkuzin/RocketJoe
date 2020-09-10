@@ -1,5 +1,6 @@
 # Don't import KernelTests
 import jupyter_kernel_test
+import unittest
 import jupyter_kernel_mgmt
 from jupyter_kernel_mgmt.discovery import KernelFinder
 from jupyter_kernel_mgmt.client import BlockingKernelClient
@@ -113,3 +114,7 @@ class RocketJoePythonTests(jupyter_kernel_test.KernelTests):
 #         # async with jupyter_kernel_mgmt.run_kernel_async('rocketjoe') as kc:
 #             # is_complete_request_2(kc)
 #         await self.kc.is_complete("print")
+
+
+if __name__ == '__main__':
+    unittest.main()
