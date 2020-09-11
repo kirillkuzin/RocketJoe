@@ -44,4 +44,4 @@ jobs:
         run: jupyter kernelspec install --user kernels/rocketjoe
 
       - name: run test
-        run: pytest
+        run: pytest apps/rocketjoe_kernel/test/test_jupyter_kernel.py
