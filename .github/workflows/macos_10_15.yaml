@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [macos-10.15]
-        python-version: [3.5]
+        python-version: [3.6]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
