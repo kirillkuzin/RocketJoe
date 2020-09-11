@@ -31,7 +31,7 @@ jobs:
         run: pip3 install --user -r apps/rocketjoe_kernel/test/requirements.txt
 
       - name: install kernel
-        run: jupyter kernelspec install --user kernels/rocketjoe
+        run: python3 -m jupyter kernelspec install --user kernels/rocketjoe
 
       - name: run test
         run: pytest apps/rocketjoe_kernel/test/test_jupyter_kernel.py
